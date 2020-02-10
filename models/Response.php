@@ -2,7 +2,7 @@
     class Response {
         public $status;
         public $data;
-        public $message;
+        public $message = "";
 
         public function success_response($status, $data){
             $this->status = $status;
