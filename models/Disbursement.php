@@ -40,5 +40,22 @@
             $this->conn->close();
             return $new_disbursement;
         }
+
+        public function check($id, $receipt){
+            $query = 'UPDATE disbursements
+            SET status_id = 2, receipt = "' . $receipt . '"
+            WHERE id=' . $id;
+            
+            $result = $this->conn->query($query);
+            // $last_id = (int)$this->conn->insert_id;
+            if ($this->conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            
+            $new_disbursement = $this->read($id);
+
+            $this->conn->close();
+            return $new_disbursement;
+        }
     }
 ?>

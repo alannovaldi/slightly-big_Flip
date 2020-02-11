@@ -25,17 +25,12 @@
     $db = $database->connect();
     
     $data = json_decode(file_get_contents("php://input"));
+
+    $disbursement_id = (int)$_GET['id'];
     
     $disbursement = new Disbursement($db);
-    $disbursement->amount = $data->amount;
-    $disbursement->status_id = 1;
-    $disbursement->bank_code = $data->bank_code;
-    $disbursement->account_number = $data->account_number;
-    $disbursement->beneficiary_name = "PT FLIP";
-    $disbursement->remark = $data->remark;
-    $disbursement->fee = 5000;
 
-    $result = $disbursement->create()->fetch_assoc();
+    $result = $disbursement->check($disbursement_id, $data->receipt)->fetch_assoc();
 
     $data_array = array(
         'id' => $result['id'],
@@ -50,6 +45,8 @@
         'time_served' => $result['time_served'],
         'fee' => $result['fee']
     );
+
+    // echo(json_encode($result['id']));
 
     $response = $response->success_response("success", $data_array);
 
