@@ -18,17 +18,20 @@ private $dbname = "trial_db";
 
 Now you can run the following APIs after following the instructions above.
 
-1. Title:		Create Disbursement
+**1. Title:		Create Disbursement**
 ```
-Desctiption:
-			Save new disbursement request from a customer as a pending disbursement
-URL:		localhost/slightly-big_Flip/api/status/create.php
-Method:		POST
+Description:
+	Save new disbursement request from a customer as a pending disbursement
+URL:	localhost/slightly-big_Flip/api/status/create.php
+Method:	POST
 Header:
-			Content-Type:	application/json
-			Authorization:	Basic HyzioY7LP6ZoO7nTYKbG8O4ISkyWnX1JvAEVAhtWKZumooCzqp41
+    {
+        Content-Type:	application/json
+        Authorization:	Basic HyzioY7LP6ZoO7nTYKbG8O4ISkyWnX1JvAEVAhtWKZumooCzqp41
+    }
+    
 URL Params:
--
+    -
 Body Params:
 	{
 		"amount": 10000,
@@ -56,17 +59,20 @@ Success Response
 	}
  ```
 
- 2. Title:		Check Disbursement
+**2. Title:		Check Disbursement**
  ```
-Desctiption:
-			Finish up a disbursement process by a customer into SUCCESS and update disbursement receipt
-URL:		localhost/slightly-big_Flip/api/disbursement/check.php?id={$id}
-Method:		POST
+Description:
+	Finish up a disbursement process by a customer into SUCCESS and update disbursement receipt
+URL:	localhost/slightly-big_Flip/api/disbursement/check.php?id={$id}
+Method:	POST
 Header:
-			Content-Type:	application/json
-			Authorization:	Basic HyzioY7LP6ZoO7nTYKbG8O4ISkyWnX1JvAEVAhtWKZumooCzqp41
+    {
+        Content-Type:	application/json
+        Authorization:	Basic HyzioY7LP6ZoO7nTYKbG8O4ISkyWnX1JvAEVAhtWKZumooCzqp41
+    }
+		
 URL Params:
-$id: {disbursement_id} 
+    $id: {disbursement_id} 
 Body Params:
 	{
 		"receipt": "https://flip-receipt.oss-ap-southeast-5.aliyuncs.com/debit_receipt/126316_3d07f9fef9612c7275b3c36f7e1e5762.jpg"
@@ -91,17 +97,20 @@ Success Response
 	}
 ```
 
-3. Title:		View Disbursement
+**3. Title:		View Disbursement**
 ```
-Desctiption:
-			View a disbursement detail data
-URL:		localhost/slightly-big_Flip/api/disbursement/read.php?id=1
-Method:		POST
+Description:
+	View a disbursement detail data
+URL:	localhost/slightly-big_Flip/api/disbursement/read.php?id=1
+Method:	POST
 Header:
-			Content-Type:	application/json
-			Authorization:	Basic HyzioY7LP6ZoO7nTYKbG8O4ISkyWnX1JvAEVAhtWKZumooCzqp41
+    {
+        Content-Type:	application/json
+        Authorization:	Basic HyzioY7LP6ZoO7nTYKbG8O4ISkyWnX1JvAEVAhtWKZumooCzqp41
+    }
+		
 URL Params:
-$id: {disbursement_id} 
+    $id: {disbursement_id} 
 Body Params:
 -
 
